@@ -2,6 +2,14 @@ CREATE DATABASE IF NOT EXISTS `matehereDB`;
 
 USE `matehereDB`;
 
+DROP TABLE IF EXISTS `Haveposts`;
+DROP TABLE IF EXISTS `Needposts`;
+DROP TABLE IF EXISTS `Clients`;
+DROP TABLE IF EXISTS `Accounts`;
+DROP TABLE IF EXISTS `Rooms`;
+DROP TABLE IF EXISTS `Centrals`;
+
+
 CREATE TABLE `Accounts`(
 
     `id` INT(15) NOT NULL UNIQUE,
@@ -81,7 +89,7 @@ CREATE TABLE `Needposts` (
 
 )ENGINE=InnoDB DEFAULT CHARSET utf8mb4;
 
-CREATE TABLE `rooms` (
+CREATE TABLE `Rooms` (
 
     `haveposts_id` INT(15) NOT NULL UNIQUE,
     `needposts_id` INT(15) NOT NULL UNIQUE,
@@ -102,7 +110,7 @@ CREATE TABLE `rooms` (
 
 )ENGINE=InnoDB DEFAULT CHARSET utf8mb4;
 
-CREATE TABLE `rooms` (
+CREATE TABLE `Centrals` (
 
     `haveposts_id` INT(15) NOT NULL UNIQUE,
     `needposts_id` INT(15) NOT NULL UNIQUE,
