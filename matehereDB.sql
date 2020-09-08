@@ -12,9 +12,9 @@ DROP TABLE IF EXISTS `Centrals`;
 
 CREATE TABLE `Accounts`(
 
-    `id` INT(15) NOT NULL UNIQUE,
+    `id` BIGINT NOT NULL UNIQUE,
     `username` VARCHAR(15) NOT NULL UNIQUE,
-    `password` VARCHAR(12) NOT NULL UNIQUE
+    `password` VARCHAR(12) NOT NULL UNIQUE,
 
     PRIMARY KEY (`id`)
 
@@ -22,20 +22,21 @@ CREATE TABLE `Accounts`(
 
 CREATE TABLE `Clients`(
 
-    `id` INT(15) NOT NULL UNIQUE,
+    `id` BIGINT NOT NULL UNIQUE,
     `first_name` VARCHAR(50) NOT NULL,
     `last_name` VARCHAR(50) NOT NULL,
     `email` VARCHAR(50) NOT NULL UNIQUE,
     `telephone_number` INT(10) NOT NULL,
     `line_id` VARCHAR(50) NOT NULL UNIQUE,
     `facebook_name` VARCHAR(50) NOT NULL,
-    `date_of_birth` DATE(10) NOT NULL,
+    `date_of_birth` DATE NOT NULL,
     `gender` VARCHAR(10) NOT NULL,
     `proflie_picture` VARCHAR(250) NOT NULL,
-    `accounts_id` VARCHAR(50) NOT NULL UNIQUE,
+    `accounts_id` BIGINT NOT NULL UNIQUE,
 
     PRIMARY KEY (`id`),
     CONSTRAINT `accounts_idfk_1` FOREIGN KEY (`accounts_id`) REFERENCES `Accounts`.`id`
+    
 
 )ENGINE=InnoDB DEFAULT CHARSET utf8mb4;
 
@@ -57,7 +58,7 @@ CREATE TABLE `Haveposts`(
     `routine_mate` VARCHAR(250) NOT NULL,
     `like_thing` VARCHAR(150) NOT NULL,
     `dislike` VARCHAR(150) NOT NULL,
-    `other_information` VARCHAR(250)
+    `other_information` VARCHAR(250),
 
     PRIMARY KEY (`id`),
     CONSTRAINT `clients_idfk_1` FOREIGN KEY (`clients_id`) REFERENCES `Clients`.`id`
@@ -82,7 +83,7 @@ CREATE TABLE `Needposts` (
     `need_routine` VARCHAR(250) NOT NULL,
     `need_like` VARCHAR(150) NOT NULL,
     `need_dislike` VARCHAR(150) NOT NULL,
-    `need_other_information` VARCHAR(250)
+    `need_other_information` VARCHAR(250),
 
     PRIMARY KEY (`id`),
     CONSTRAINT `clients_idfk_1` FOREIGN KEY (`clients_id`) REFERENCES `Clients`.`id`
@@ -100,7 +101,7 @@ CREATE TABLE `Rooms` (
     `smoking` VARCHAR(5) NOT NULL,
     `internet_wifi` VARCHAR(5) NOT NULL,
     `furniture` VARCHAR(5) NOT NULL,
-    `water_heater` VARCHAR(5) NOT NULL
+    `water_heater` VARCHAR(5) NOT NULL,
 
 
     PRIMARY KEY (`haveposts_id`),
@@ -120,7 +121,7 @@ CREATE TABLE `Centrals` (
     `security` VARCHAR(5) NOT NULL,
     `pool`VARCHAR(5) NOT NULL,
     `gym` VARCHAR(5) NOT NULL,
-    `laundry` VARCHAR(5) NOT NULL
+    `laundry` VARCHAR(5) NOT NULL,
 
 
     PRIMARY KEY (`haveposts_id`),
