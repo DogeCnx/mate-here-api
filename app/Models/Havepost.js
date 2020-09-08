@@ -4,6 +4,25 @@
 const Model = use('Model')
 
 class Havepost extends Model {
+    static get primaryKey(){
+        return 'havepost_id'
+    }
+    static get createdAtColumn() {
+        return null;
+
+    }
+    static get updatedAtColumn(){
+        return null;
+    }
+    client(){
+        return this.belongsTo('App/Models/Client')
+    }
+    central(){
+        return this.hasMany('App/Models/Central')
+    }
+    room(){
+        return this.hasMany('App/Models/Room')
+    }
 }
 
 module.exports = Havepost
