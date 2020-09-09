@@ -21,6 +21,7 @@ class HavepostSchema extends Schema {
       table.string('like_thing',150).notNullable()
       table.string('dislike',150).notNullable()
       table.string('other_information',250).notNullable()
+      table.string('status_post',10).notNullable()
       table.integer('client_id').notNullable().unsigned()
       table.timestamps()
 

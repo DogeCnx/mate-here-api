@@ -21,6 +21,7 @@ class NeedpostSchema extends Schema {
       table.string('need_like_thing',150).notNullable()
       table.string('need_dislike',150).notNullable()
       table.string('need_other_information',250).notNullable()
+      table.string('status_post',10).notNullable()
       table.integer('client_id').notNullable().unsigned()
       table.timestamps()
 
