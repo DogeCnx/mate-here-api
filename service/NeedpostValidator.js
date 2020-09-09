@@ -12,7 +12,10 @@ module.exports =  async function loginValidator(data) {
            need_routine,need_like_thing,need_dislike,
            need_other_information,
            status_post,client_id,parking,lift,
-           keycard,security,pool,gym,luandry} = data
+           keycard,security,pool,gym,luandry,
+           air_conditioner,number_of_toilet,
+           number_of_bedroom,pets,smoking,
+           internet_wifi,furniture,water_heater} = data
     
     const rules = {
 
@@ -37,7 +40,15 @@ module.exports =  async function loginValidator(data) {
         security : 'required|max:5',
         pool : 'required|max:5',
         gym : 'required|max:5',
-        luandry : 'required|max:5'    
+        luandry : 'required|max:5',        
+        air_conditioner : 'required|max:5',        
+        number_of_toilet : 'required|max:5',        
+        number_of_bedroom : 'required|max:5',        
+        pets : 'required|max:5',        
+        smoking : 'required|max:5',        
+        internet_wifi : 'required|max:5',        
+        furniture : 'required|max:5',        
+        water_heater : 'required|max:5'     
 
         
     }
@@ -50,7 +61,10 @@ module.exports =  async function loginValidator(data) {
         need_routine,need_like_thing,need_dislike,
         need_other_information,
         status_post,client_id,parking,lift,
-        keycard,security,pool,gym,luandry},rules)
+        keycard,security,pool,gym,luandry,
+        air_conditioner,number_of_toilet,
+        number_of_bedroom,pets,smoking,
+        internet_wifi,furniture,water_heater},rules)
 
     return {
         error : validation.messages()
