@@ -10,7 +10,8 @@ module.exports =  async function loginValidator(data) {
            amount_of_mate,location,faculty,
            faculty_mate,habit,habit_mate,
            routine,like_thing,dislike,other_information,
-           status_post,client_id} = data
+           status_post,client_id,parking,lift,
+           keycard,security,pool,gym,luandry} = data
     
     const rules = {
         need_university_name :'required|max:100' ,
@@ -27,8 +28,14 @@ module.exports =  async function loginValidator(data) {
         dislike : 'required|max:150',
         other_information : 'required|max:250',
         status_post : 'required|max:10',
-        client_id : 'required'
-        
+        client_id : 'required',
+        parking : 'required|max:5',
+        lift : 'required|max:5',
+        keycard : 'required|max:5',
+        security : 'required|max:5',
+        pool : 'required|max:5',
+        gym : 'required|max:5',
+        luandry : 'required|max:5'        
 
         
     }
@@ -39,7 +46,8 @@ module.exports =  async function loginValidator(data) {
         amount_of_mate,location,faculty,
         faculty_mate,habit,habit_mate,
         routine,like_thing,dislike,other_information,
-        status_post,client_id},rules)
+        status_post,client_id,parking,lift,
+        keycard,security,pool,gym,luandry},rules)
 
     return {
         error : validation.messages()
