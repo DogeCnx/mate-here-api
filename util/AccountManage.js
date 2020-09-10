@@ -42,9 +42,9 @@ class AccountManage {
         return this._withReferences(accounts,references).fetch().then(response => response.first())
     }
 
-    async updateById(account_id){
+    async updateById(account_id,accountInstance,references){
         const accounts = await this._Account.find(account_id)
-        accounts.merge()
+        accounts.merge(accountInstance)
         await accounts.save();
     
         const accounts = this._Account.query().where('account_id',account_id)
