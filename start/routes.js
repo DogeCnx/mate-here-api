@@ -22,23 +22,29 @@ Route.get('/', () => {
 
 Route.group(() => {
   
-  // //teaacher table
-  // Route.resource('/accounts','AccountController'); //auto generate
+  //teaacher table
+  Route.resource('/accounts','AccountController'); //auto generate
+  // Route.get('/accounts','AccountController.index')
+  // Route.get('/accounts/:id','AccountController.show')
+  // Route.post('/accounts' ,'AccountController.store')
+  // Route.put('/accounts/:id','AccountController.update')
+  // Route.patch('/accounts/:id','AccountController.update')
+  // Route.delete('/accounts/:id','AccountController.destroy')
   
-  // //students table
-  // Route.resource('/clients', 'ClientController');
+  //students table
+  Route.resource('/clients', 'ClientController');
 
-  // //subjects 
-  // Route.resource('/haveposts', 'HavepostController');
+  //subjects 
+  Route.resource('/haveposts', 'HavepostController');
 
-  // //group
-  // Route.resource('/needposts', 'NeedpostController');
+  //group
+  Route.resource('/needposts', 'NeedpostController');
 
-  // //enrollments
-  // Route.resource('/centrals', 'CentralController');
+  //enrollments
+  Route.resource('/centrals', 'CentralController');
   
-  // //enrollments
-  // Route.resource('/rooms', 'RoomController');  
+  //enrollments
+  Route.resource('/rooms', 'RoomController');  
 
 
 
