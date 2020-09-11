@@ -1,7 +1,7 @@
 const Validator = use('Validator')
 
 
-module.exports =  async function loginValidator(data) {
+module.exports =  async function HavepostValidator(data) {
 
     if (typeof data !== 'object') throw new Error()
     
