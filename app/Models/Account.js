@@ -15,8 +15,8 @@ class Account extends Model {
         return null;
     }
 
-    client(){
-        return this.hasMany('App/Models/Client')
+    client () {
+        return this.hasOne('App/Models/Client')
     }
 }
 
