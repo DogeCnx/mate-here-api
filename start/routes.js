@@ -46,6 +46,9 @@ Route.group(() => {
   //enrollments
   Route.resource('/rooms', 'RoomController');  
 
+  //students table
+  Route.resource('/registers','RegisterController');
+
 
 
 }).prefix('api/v1')
