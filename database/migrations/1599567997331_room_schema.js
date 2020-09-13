@@ -8,8 +8,8 @@ class RoomSchema extends Schema {
     this.create('rooms', (table) => {
       table.increments('room_id')
 
-      table.integer('havepost_id').notNullable().unsigned()
-      table.integer('needpost_id').notNullable().unsigned()
+      table.integer('havepost_id').unsigned()
+      table.integer('needpost_id').unsigned()
 
       table.string('air_conditioner',5).notNullable()
       table.string('number_of_toilet',5).notNullable()
