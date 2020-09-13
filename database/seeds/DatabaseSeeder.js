@@ -15,7 +15,13 @@ const Factory = use('Factory')
 
 class DatabaseSeeder {
   async run () {
-    const accounts =  await Factory.model('App/Models/Account').createMany(10)
+    const accounts =  await Factory
+    .model('App/Models/Account')
+    .createMany(10)
+
+    const clients =  await Factory
+    .model('App/Models/Client')
+    .createMany(10)
   }
 }
 
