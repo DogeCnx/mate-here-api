@@ -12,7 +12,7 @@ class NeedpostSchema extends Schema {
       table.integer('need_full_cost',7).notNullable()
       table.integer('need_half_cost',7).notNullable()
       table.integer('need_amount_of_mate',2).notNullable()
-      table.string('need_location',50).notNullable()
+      table.string('need_location',250).notNullable()
       table.string('need_faculty',30).notNullable()
       table.string('need_faculty_mate',30).notNullable()
       table.string('need_habit',250).notNullable()
@@ -22,7 +22,7 @@ class NeedpostSchema extends Schema {
       table.string('need_dislike',150).notNullable()
       table.string('need_other_information',250).notNullable()
       table.string('status_post',10).notNullable()
-      table.integer('client_id').notNullable().unsigned()
+      table.integer('client_id').unsigned()
       table.timestamps()
 
       table
