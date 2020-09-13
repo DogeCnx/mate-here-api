@@ -22,6 +22,10 @@ class DatabaseSeeder {
     const clients =  await Factory
     .model('App/Models/Client')
     .createMany(10)
+
+    const haveposts =  await Factory
+    .model('App/Models/Havepost')
+    .createMany(10)
   }
 }
 
