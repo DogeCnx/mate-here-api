@@ -1,6 +1,8 @@
 'use strict'
 const Client = use('App/Models/Client')
 const ClientManage = require('../../../util/ClientManage')
+const Validator = use('Validator')
+const clientValidator = require('../../../service/RegisterValidator')
 
 class ClientController {
     async index( {request }) {
@@ -21,7 +23,14 @@ class ClientController {
         const clientManage = new ClientManage(Client)
         const clients = await clientManage
         .getById(request ,references)
-        
+
+        const validatedValue = numberTypeParamValidator(id)
+
+        if(validatedValue.error) 
+        return { status: 500, 
+         error: validatedValue.error, 
+         data: undefined}
+ 
         return {status : 200 ,
             error : undefined , 
             data : clients};
@@ -31,6 +40,15 @@ class ClientController {
     async store({ request }) {
         const {references = undefined} =request.qs
         const clientManage = new ClientManage(Client)
+
+        const validation = await clientValidator(request.body)
+      
+      if(validation.error){
+        return {status: 422, 
+          error: validation.error,
+          data: undefined}
+      }
+
         const clients = await clientManage
         .create(request,references)
         
@@ -43,6 +61,15 @@ class ClientController {
     async update( {request} ) {
         const {references = undefined} =request.qs
         const clientManage = new ClientManage(Client)
+
+        const validation = await clientValidator(request.body)
+      
+        if(validation.error){
+          return {status: 422, 
+          error: validation.error,
+          data: undefined}
+        }
+
         const clients = await clientManage
         .updateById(request,references)
         
