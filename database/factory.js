@@ -21,6 +21,21 @@ Factory.blueprint('App/Models/Account' , (faker) => {
     }
 })
 
+Factory.blueprint('App/Models/Client' , (faker) => {
+    return {
+        first_name : faker.first() ,
+        last_name : faker.last(),
+        email : faker.email(),
+        telephone_number : faker.number({length:10}),
+        line_id : faker.word({length:8}),
+        facebook_name : faker.word(),
+        date_of_birth : faker.date(),
+        gender : faker.gender(),
+        profile_picture : faker.avatar(),
+        account_id : faker.avatar(),
+    }
+})
+
 // Factory.blueprint('App/Models/User', (faker) => {
 //   return {
 //     username: faker.username()
