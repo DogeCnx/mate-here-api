@@ -1,7 +1,8 @@
 'use strict'
 const Account = use('App/Models/Account')
 const AccountManage = require('../../../util/AccountManage')
-
+const Validator = use('Validator')
+const loginValidator = require('../../../service/LoginValidator')
 
 class AccountController {
     async index( {request }) {
@@ -17,25 +18,55 @@ class AccountController {
     async show({ request }) {
         const {references = undefined} =request.qs
         const accountManage = new AccountManage(Account)
-        const accounts = await accountManage.getById(request ,references)
+        const accounts = await accountManage
+        .getById(request ,references)
         
-        return {status : 200 ,error : undefined , data : accounts};
+        const validatedValue = numberTypeParamValidator(id)
+
+        if(validatedValue.error) 
+        return { status: 500, 
+         error: validatedValue.error, 
+         data: undefined}
+ 
+        return {status : 200 ,
+            error : undefined , 
+            data : accounts};
     }
 
 
     async store({ request }) {
         const {references = undefined} =request.qs
         const accountManage = new AccountManage(Account)
-        const accounts = await accountManage.create(request,references)
+        const validation = await loginValidator(request.body)
+      
+      if(validation.error){
+        return {status: 422, 
+          error: validation.error,
+          data: undefined}
+      }
+
+        const accounts = await accountManage
+        .create(request,references)
         
-        return {status : 200 ,error : undefined , data : accounts};
+        return {status : 200 ,
+            error : undefined , 
+            data : accounts};
     }
 
 
     async update( {request} ) {
         const {references = undefined} =request.qs
         const accountManage = new AccountManage(Account)
-        const accounts = await accountManage.updateById(request,references)
+        const validation = await loginValidator(request.body)
+      
+      if(validation.error){
+        return {status: 422, 
+          error: validation.error,
+          data: undefined}
+      }
+
+        const accounts = await accountManage
+        .updateById(request,references)
         
         return {status : 200 ,error : undefined , data : accounts};
 
