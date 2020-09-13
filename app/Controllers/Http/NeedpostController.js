@@ -1,7 +1,6 @@
 'use strict'
 const Needpost = use('App/Models/Needpost')
 const NeedpostManage = require('../../../util/Needpost')
-const Validator = use('Validator')
 const needpostValidator = require('../../../service/NeedpostTableValidator')
 
 
@@ -22,9 +21,6 @@ class NeedpostController {
 
     async show({ request }) {
         const {references = undefined} =request.qs
-        const needpostManage = new NeedpostManage(Needpost)
-        const needposts = await needpostManage
-        .getById(request ,references)
         const validatedValue = numberTypeParamValidator(id)
 
        if(validatedValue.error) 
@@ -32,6 +28,10 @@ class NeedpostController {
         error: validatedValue.error, 
         data: undefined}
 
+        const needpostManage = new NeedpostManage(Needpost)
+        const needposts = await needpostManage
+        .getById(request ,references)
+        
         return {status : 200 ,
             error : undefined , 
             data : needposts};
@@ -40,7 +40,6 @@ class NeedpostController {
 
     async store({ request }) {
         const {references = undefined} =request.qs
-        const needpostManage = new NeedpostManage(Needpost)
         const validation = await needpostValidator(request.body)
       
       if(validation.error){
@@ -49,6 +48,8 @@ class NeedpostController {
           data: undefined}
       }
 
+        const needpostManage = new NeedpostManage(Needpost)
+        
         
         const needposts = await needpostManage
         .create(request,references)
@@ -61,7 +62,6 @@ class NeedpostController {
 
     async update( {request} ) {
         const {references = undefined} =request.qs
-        const needpostManage = new NeedpostManage(Needpost)
         const validation = await needpostValidator(request.body)
       
         if(validation.error){
@@ -69,6 +69,8 @@ class NeedpostController {
             error: validation.error,
             data: undefined}
         }
+        const needpostManage = new NeedpostManage(Needpost)
+        
        
         const needposts = await needpostManage
         .updateById(request,references)
