@@ -20,10 +20,6 @@ class ClientController {
 
     async show({ request }) {
         const {references = undefined} =request.qs
-        const clientManage = new ClientManage(Client)
-        const clients = await clientManage
-        .getById(request ,references)
-
         const validatedValue = numberTypeParamValidator(id)
 
         if(validatedValue.error) 
@@ -31,6 +27,11 @@ class ClientController {
          error: validatedValue.error, 
          data: undefined}
  
+        const clientManage = new ClientManage(Client)
+        const clients = await clientManage
+        .getById(request ,references)
+
+      
         return {status : 200 ,
             error : undefined , 
             data : clients};
@@ -39,8 +40,6 @@ class ClientController {
 
     async store({ request }) {
         const {references = undefined} =request.qs
-        const clientManage = new ClientManage(Client)
-
         const validation = await clientValidator(request.body)
       
       if(validation.error){
@@ -49,6 +48,9 @@ class ClientController {
           data: undefined}
       }
 
+        const clientManage = new ClientManage(Client)
+
+        
         const clients = await clientManage
         .create(request,references)
         
@@ -60,8 +62,6 @@ class ClientController {
 
     async update( {request} ) {
         const {references = undefined} =request.qs
-        const clientManage = new ClientManage(Client)
-
         const validation = await clientValidator(request.body)
       
         if(validation.error){
@@ -70,6 +70,9 @@ class ClientController {
           data: undefined}
         }
 
+        const clientManage = new ClientManage(Client)
+
+       
         const clients = await clientManage
         .updateById(request,references)
         
