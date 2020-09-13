@@ -30,6 +30,10 @@ class DatabaseSeeder {
     const needposts =  await Factory
     .model('App/Models/Needpost')
     .createMany(10)
+
+    const centrals =  await Factory
+    .model('App/Models/Central')
+    .createMany(10)
   }
 }
 
