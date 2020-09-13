@@ -32,7 +32,7 @@ Factory.blueprint('App/Models/Client' , (faker) => {
         date_of_birth : faker.date(),
         gender : faker.gender(),
         profile_picture : faker.avatar(),
-        account_id : faker.avatar()
+        // account_id : faker.avatar()
     }
 })
 
@@ -52,7 +52,7 @@ Factory.blueprint('App/Models/Havepost' , (faker) => {
         dislike : faker.word(),
         other_information : faker.paragraph(),
         status_post : faker.word(),
-        client_id : faker.integer()
+        //client_id : faker.integer()
     }
 
     
@@ -74,7 +74,7 @@ Factory.blueprint('App/Models/Needpost' , (faker) => {
         need_dislike : faker.word(),
         need_other_information : faker.paragraph(),
         status_post : faker.word(),
-        client_id : faker.integer()
+        //client_id : faker.integer()
     }
 })
 
