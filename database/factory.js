@@ -76,6 +76,19 @@ Factory.blueprint('App/Models/Needpost' , (faker) => {
         status_post : faker.word(),
         client_id : faker.integer()
     }
+})
+
+Factory.blueprint('App/Models/Central' , (faker) => {
+    return {
+        parking : faker.word({length:2}),
+        lift : faker.word({length:2}),
+        keycard : faker.word({length:2}),
+        security : faker.word({length:2}),
+        pool : faker.word({length:2}),
+        gym : faker.word({length:2}),
+        luandry : faker.word({length:2})
+    }
+})
 
 // Factory.blueprint('App/Models/User', (faker) => {
 //   return {
