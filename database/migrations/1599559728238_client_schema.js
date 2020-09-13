@@ -10,13 +10,13 @@ class ClientSchema extends Schema {
       table.string('first_name',50).notNullable()
       table.string('last_name',50).notNullable()
       table.string('email',50).notNullable()
-      table.integer('telephone_number',10).notNullable()
+      table.string('telephone_number',50).notNullable()
       table.string('line_id',50).notNullable()
       table.string('facebook_name',50).notNullable()
-      table.string('date_of_birth',10).notNullable()
+      table.string('date_of_birth',50).notNullable()
       table.string('gender',10).notNullable()
       table.string('profile_picture',250).notNullable()
-      table.integer('account_id').notNullable().unsigned()
+      table.integer('account_id').unsigned()
       table.timestamps()
 
       table
