@@ -54,7 +54,28 @@ Factory.blueprint('App/Models/Havepost' , (faker) => {
         status_post : faker.word(),
         client_id : faker.integer()
     }
+
+    
 })
+
+Factory.blueprint('App/Models/Needpost' , (faker) => {
+    return {
+        need_university_name: faker.word(),
+        need_type: faker.word(),
+        need_full_cost: faker.integer(),
+        need_half_cost: faker.integer(),
+        need_amount_of_mate: faker.integer(),
+        need_location: faker.sentence(),
+        need_faculty: faker.word(),
+        need_faculty_mate : faker.word(),
+        need_habit : faker.word(),
+        need_habit_mate : faker.word(),
+        need_like_thing : faker.word(),
+        need_dislike : faker.word(),
+        need_other_information : faker.paragraph(),
+        status_post : faker.word(),
+        client_id : faker.integer()
+    }
 
 // Factory.blueprint('App/Models/User', (faker) => {
 //   return {
