@@ -2,6 +2,7 @@
 const Havepost = use('App/Models/Havepost')
 const HavepostManage = require('../../../util/Havepost')
 const havepostValidator = require('../../../service/HavepostTableValidator')
+const numberTypeParamValidator = require('../../../service/numberTypeParamValidator')
 
 class HavepostController {
     async index( {request }) {

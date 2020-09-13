@@ -2,6 +2,7 @@
 const Needpost = use('App/Models/Needpost')
 const NeedpostManage = require('../../../util/Needpost')
 const needpostValidator = require('../../../service/NeedpostTableValidator')
+const numberTypeParamValidator = require('../../../service/numberTypeParamValidator')
 
 
 class NeedpostController {

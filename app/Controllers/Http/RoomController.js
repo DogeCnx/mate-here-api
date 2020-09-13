@@ -2,8 +2,7 @@
 const Room  = use('App/Models/Room')
 const RoomManage = require('../../../util/Room')
 const roomValidator = require('../../../service/RoomValidator')
-
-
+const numberTypeParamValidator = require('../../../service/numberTypeParamValidator')
 
 class RoomController {
 

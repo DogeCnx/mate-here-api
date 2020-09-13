@@ -1,8 +1,8 @@
 'use strict'
 const Client = use('App/Models/Client')
 const ClientManage = require('../../../util/ClientManage')
-const Validator = use('Validator')
 const clientValidator = require('../../../service/RegisterValidator')
+const numberTypeParamValidator = require('../../../service/numberTypeParamValidator')
 
 class ClientController {
     async index( {request }) {

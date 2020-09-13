@@ -1,8 +1,8 @@
 'use strict'
 const Central = use('App/Models/Central')
 const CentralManage = require('../../../util/CentralManage')
-const Validator = use('Validator')
 const centralValidator = require('../../../service/CentralValidator')
+const numberTypeParamValidator = require('../../../service/numberTypeParamValidator')
 
 class CentralController {
     async index( {request }) {
