@@ -90,6 +90,20 @@ Factory.blueprint('App/Models/Central' , (faker) => {
     }
 })
 
+Factory.blueprint('App/Models/Room' , (faker) => {
+    return {
+        air_conditioner : faker.word({length:2}),        
+        number_of_toilet : faker.word({length:2}),        
+        number_of_bedroom : faker.word({length:2}),        
+        pets : faker.word({length:2}),        
+        smoking : faker.word({length:2}),        
+        internet_wifi : faker.word({length:2}),        
+        furniture : faker.word({length:2}),        
+        water_heater : faker.word({length:2})  
+        
+    }
+})
+
 // Factory.blueprint('App/Models/User', (faker) => {
 //   return {
 //     username: faker.username()
