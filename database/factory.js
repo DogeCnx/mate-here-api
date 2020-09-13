@@ -26,13 +26,13 @@ Factory.blueprint('App/Models/Client' , (faker) => {
         first_name : faker.first() ,
         last_name : faker.last(),
         email : faker.email(),
-        telephone_number : faker.integer({length:10}),
+        telephone_number : faker.phone({ formatted: false }),
         line_id : faker.word({length:8}),
         facebook_name : faker.word(),
         date_of_birth : faker.date(),
         gender : faker.gender(),
         profile_picture : faker.avatar(),
-        // account_id : faker.avatar()
+
     }
 })
 
@@ -40,19 +40,20 @@ Factory.blueprint('App/Models/Havepost' , (faker) => {
     return {
         need_university_name: faker.word(),
         type_room: faker.word(),
-        full_cost: faker.integer(),
-        half_cost: faker.integer(),
-        amount_of_mate: faker.integer(),
-        location: faker.sentence(),
+        full_cost: faker.integer({ min: 0, max: 1000000 }),
+        half_cost: faker.integer({ min: 0, max: 1000000 }),
+        amount_of_mate: faker.integer({ min: 0, max: 10 }),
+        location: faker.sentence({word:2}),
         faculty: faker.word(),
         faculty_mate : faker.word(),
         habit : faker.word(),
         habit_mate : faker.word(),
+        routine :faker.word(),
         like_thing : faker.word(),
         dislike : faker.word(),
-        other_information : faker.paragraph(),
+        other_information : faker.sentence({word:2}),
         status_post : faker.word(),
-        //client_id : faker.integer()
+
     }
 
     
@@ -62,19 +63,20 @@ Factory.blueprint('App/Models/Needpost' , (faker) => {
     return {
         need_university_name: faker.word(),
         need_type: faker.word(),
-        need_full_cost: faker.integer(),
-        need_half_cost: faker.integer(),
-        need_amount_of_mate: faker.integer(),
-        need_location: faker.sentence(),
+        need_full_cost: faker.integer({ min: 0, max: 1000000 }),
+        need_half_cost: faker.integer({ min: 0, max: 1000000 }),
+        need_amount_of_mate: faker.integer({ min: 0, max: 10 }),
+        need_location: faker.sentence({word:2}),
         need_faculty: faker.word(),
         need_faculty_mate : faker.word(),
         need_habit : faker.word(),
         need_habit_mate : faker.word(),
+        need_routine :faker.word(),
         need_like_thing : faker.word(),
         need_dislike : faker.word(),
-        need_other_information : faker.paragraph(),
+        need_other_information : faker.sentence({word:2}),
         status_post : faker.word(),
-        //client_id : faker.integer()
+
     }
 })
 
