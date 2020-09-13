@@ -65,7 +65,7 @@ class CentralController {
     async update( {request} ) {
         
         const {references = undefined} =request.qs
-        const centralManage = new VCentralManage(Central)
+        const centralManage = new CentralManage(Central)
 
         const validation = await centralValidator(request.body)
       
