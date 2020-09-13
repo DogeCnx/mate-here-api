@@ -17,10 +17,6 @@ class AccountController {
 
     async show({ request }) {
         const {references = undefined} =request.qs
-        const accountManage = new AccountManage(Account)
-        const accounts = await accountManage
-        .getById(request ,references)
-        
         const validatedValue = numberTypeParamValidator(id)
 
         if(validatedValue.error) 
@@ -28,6 +24,11 @@ class AccountController {
          error: validatedValue.error, 
          data: undefined}
  
+        const accountManage = new AccountManage(Account)
+        const accounts = await accountManage
+        .getById(request ,references)
+        
+        
         return {status : 200 ,
             error : undefined , 
             data : accounts};
@@ -36,7 +37,6 @@ class AccountController {
 
     async store({ request }) {
         const {references = undefined} =request.qs
-        const accountManage = new AccountManage(Account)
         const validation = await loginValidator(request.body)
       
       if(validation.error){
@@ -44,7 +44,7 @@ class AccountController {
           error: validation.error,
           data: undefined}
       }
-
+        const accountManage = new AccountManage(Account)
         const accounts = await accountManage
         .create(request,references)
         
@@ -56,7 +56,6 @@ class AccountController {
 
     async update( {request} ) {
         const {references = undefined} =request.qs
-        const accountManage = new AccountManage(Account)
         const validation = await loginValidator(request.body)
       
       if(validation.error){
@@ -64,7 +63,7 @@ class AccountController {
           error: validation.error,
           data: undefined}
       }
-
+        const accountManage = new AccountManage(Account)
         const accounts = await accountManage
         .updateById(request,references)
         
