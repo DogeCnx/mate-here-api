@@ -22,10 +22,6 @@ class CentralController {
     async show({ request }) {
     
         const {references = undefined} =request.qs
-        const centralManage = new CentralManage(Central)
-        const centrals = await centralManage
-        .getById(request ,references)
-        
         const validatedValue = numberTypeParamValidator(id)
 
        if(validatedValue.error) 
@@ -33,6 +29,11 @@ class CentralController {
         error: validatedValue.error, 
         data: undefined}
 
+        const centralManage = new CentralManage(Central)
+        const centrals = await centralManage
+        .getById(request ,references)
+        
+        
         return {status : 200 ,
                error : undefined , 
                data : centrals};
@@ -42,8 +43,6 @@ class CentralController {
     async store({ request }) {
 
         const {references = undefined} =request.qs
-        const centralManage = new CentralManage(Central)
-
         const validation = await centralValidator(request.body)
       
       if(validation.error){
@@ -51,8 +50,9 @@ class CentralController {
           error: validation.error,
           data: undefined}
       }
+        const centralManage = new CentralManage(Central)
 
-
+        
         const centrals = await centralManage
         .create(request,references)
         
@@ -65,16 +65,13 @@ class CentralController {
     async update( {request} ) {
         
         const {references = undefined} =request.qs
+        const validation = await centralValidator(request.body)    
+        if(validation.error){
+          return {status: 422, 
+            error: validation.error,
+            data: undefined}
+        }
         const centralManage = new CentralManage(Central)
-
-        const validation = await centralValidator(request.body)
-      
-      if(validation.error){
-        return {status: 422, 
-          error: validation.error,
-          data: undefined}
-      }
-
         const centrals = await centralManage
         .updateById(request,references)
         
