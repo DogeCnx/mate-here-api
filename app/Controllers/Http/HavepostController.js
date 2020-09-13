@@ -1,7 +1,6 @@
 'use strict'
 const Havepost = use('App/Models/Havepost')
 const HavepostManage = require('../../../util/Havepost')
-const Validator = use('Validator')
 const havepostValidator = require('../../../service/HavepostTableValidator')
 
 class HavepostController {
@@ -20,10 +19,7 @@ class HavepostController {
 
     async show({ request }) {
         const {references = undefined} =request.qs
-        const havepostManage = new HavepostManage(Havepost)
-        const haveposts = await havepostManage
-        .getById(request ,references)
-
+        
         const validatedValue = numberTypeParamValidator(id)
 
         if(validatedValue.error) 
@@ -31,6 +27,10 @@ class HavepostController {
                  error: validatedValue.error, 
                  data: undefined}
                  
+        const havepostManage = new HavepostManage(Havepost)
+        const haveposts = await havepostManage
+        .getById(request ,references)
+
         return {status : 200 ,
             error : undefined , 
             data : haveposts};
@@ -39,8 +39,7 @@ class HavepostController {
 
     async store({ request }) {
         const {references = undefined} =request.qs
-        const havepostManage = new HavepostManage(Havepost)
-        
+          
         const validation = await havepostValidator(request.body)
       
         if(validation.error){
@@ -49,6 +48,8 @@ class HavepostController {
             data: undefined}
         }
   
+        const havepostManage = new HavepostManage(Havepost)
+      
         const haveposts = await havepostManage
         .create(request,references)
          const validatedValue = numberTypeParamValidator(id)
@@ -65,7 +66,6 @@ class HavepostController {
 
     async update( {request} ) {
         const {references = undefined} =request.qs
-        const havepostManage = new HavepostManage(Havepost)
         
         const validation = await havepostValidator(request.body)
       
@@ -76,6 +76,8 @@ class HavepostController {
         }
 
 
+        const havepostManage = new HavepostManage(Havepost)
+        
         const haveposts = await havepostManage
         .updateById(request,references)
         
