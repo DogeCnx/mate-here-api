@@ -1,8 +1,8 @@
 'use strict'
 const Account = use('App/Models/Account')
 const AccountManage = require('../../../util/AccountManage')
-const Validator = use('Validator')
 const loginValidator = require('../../../service/LoginValidator')
+const numberTypeParamValidator = require('../../../service/numberTypeParamValidator')
 
 class AccountController {
     async index( {request }) {
