@@ -11,8 +11,8 @@ class HavepostSchema extends Schema {
       table.string('type_room',50).notNullable()
       table.integer('full_cost',7).notNullable()
       table.integer('half_cost',7).notNullable()
-      table.integer('amount_of_mate',2).notNullable()
-      table.string('location',50).notNullable()
+      table.integer('amount_of_mate',7).notNullable()
+      table.string('location',250).notNullable()
       table.string('faculty',30).notNullable()
       table.string('faculty_mate',30).notNullable()
       table.string('habit',250).notNullable()
@@ -22,7 +22,7 @@ class HavepostSchema extends Schema {
       table.string('dislike',150).notNullable()
       table.string('other_information',250).notNullable()
       table.string('status_post',10).notNullable()
-      table.integer('client_id').notNullable().unsigned()
+      table.integer('client_id').unsigned()
       table.timestamps()
 
       table
