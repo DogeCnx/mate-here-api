@@ -8,8 +8,8 @@ class CentralSchema extends Schema {
     this.create('centrals', (table) => {
       table.increments('central_id')
 
-      table.integer('havepost_id').notNullable().unsigned()
-      table.integer('needpost_id').notNullable().unsigned()
+      table.integer('havepost_id').unsigned()
+      table.integer('needpost_id').unsigned()
 
       table.string('parking',5).notNullable()
       table.string('lift',5).notNullable()
