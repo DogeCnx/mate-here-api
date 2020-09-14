@@ -6,65 +6,64 @@ class NeedpostManage {
     }
   
     _withReferences(instance, references) {
-      if (references) {
-        const extractedReferences = references.split(",")
-        instance.with(extractedReferences)
+        if (references) {
+          const extractedReferences = references.split(",")
+          instance.with(extractedReferences)
+        }
+    
+        return instance;
       }
   
-      return instance;
-    }
-
-    getAll(references){
-        const needposts= this._Needpost.query()
-        
-        
-        return this._withReferences(needposts,references).fetch().then(response => response.first())
-    }
-    getById(needpostInstance,references){
-        const { id } = needpostInstance.params
-        const needposts= this._Needpost.query().where({needpost_id : id})
-        
-        
-        return this._withReferences(needposts,references).fetch().then(response => response.first())
-    }
-
-    async create(needpostInstance,references) {
-
-        const {needpost_id} =  await this._Needpost.create(needpostInstance.body)
-
-        const needposts= this._Needpost.query().where({needpost_id : needpost_id})
-
-        return this._withReferences(needposts,references).fetch().then(response => response.first())
-    }
-    
-    async deletById(needpostInstance){
-        const { id } = needpostInstance.params
-        const needposts= await this._Needpost.find(id)
-
-        if(!needposts){
-            return {status : 500 ,error : `Not Found ${id}` , data : undefined};
-        }
-        needposts.delete()
-        await needposts.save();
-
-        return {status : 200 ,error : undefined , data : 'complete'};
-    }
-
-    async updateById(needpostInstance,references){
-        const { id } = needpostInstance.params
-        let needposts= await this._Needpost.find(id)
-
-        if(!needposts){
-            return {status : 500 ,error : `Not Found ${id}` , data : undefined};
-        }
-
-        needposts.merge(needpostInstance.body)
-        await needposts.save();
-    
-        needposts= this._Needpost.query().where({needpost_id : id})
-        
-        return this._withReferences(needposts,references).fetch().then(response => response.first())
-    }
+      async getAll(references){
+          const needposts= await this._Needpost.query().fetch()
+          
+          return needposts
+  
+      }
+      async getById(needInstance,references){
+          const { id } = needInstance.params
+          const needposts= await this._Needpost.query().where({client_id : id}).fetch()
+          
+          return needposts
+      }
+  
+      async create(needInstance,references) {
+  
+          const { needpost_id  } =  await this._Needpost.create(needInstance.body)
+  
+          const needposts= await this._Needpost.query().where({needpost_id  : needpost_id  }).fetch()
+          
+          return needposts
+      }
+      
+      async deletById(needInstance){
+          const { id  } = needInstance.params
+          let needposts= await this._Needpost.findBy({needpost_id :id})
+  
+          if(!needposts){
+              return {status : 500 ,error : `Not Found ${ id }` , data : undefined};
+          }
+          needposts.delete()
+          await needposts.save();
+  
+          return {status : 200 ,error : undefined , data : 'complete'};
+      }
+  
+      async updateById(needInstance,references){
+          const { id  } = needInstance.params
+          let needposts= await this._Needpost.findBy({needpost_id :id})
+  
+          if(!needposts){
+              return {status : 500 ,error : `Not Found ${ id }` , data : undefined};
+          }
+  
+          needposts.merge(needInstance.body)
+          await needposts.save();
+      
+          needposts= this._Needpost.query().where({needpost_id :id})
+          
+          return this._withReferences(needposts,references).fetch().then(response => response.first())
+      }
 
 
 }
