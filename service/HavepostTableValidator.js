@@ -58,7 +58,7 @@ module.exports =  async function HavepostTableValidator(data) {
         amount_of_mate,location,faculty,
         faculty_mate,habit,habit_mate,
         routine,like_thing,dislike,other_information,
-        status_post,client_id,username,parking,lift,
+        status_post,client_id,parking,lift,
         keycard,security,
         pool,gym,luandry,air_conditioner,number_of_toilet,
         number_of_bedroom,pets,smoking,
