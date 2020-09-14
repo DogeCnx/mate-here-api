@@ -1,8 +1,11 @@
 'use strict'
 const Account = use('App/Models/Account')
+const Client = use('App/Models/Client')
 const AccountManage = require('../../../util/AccountManage')
 const loginValidator = require('../../../service/LoginValidator')
 const numberTypeParamValidator = require('../../../service/numberTypeParamValidator')
+const LoginUtil = require('../../../util/LoginUtil')
+
 
 class AccountController {
     async index( {request }) {
@@ -82,8 +85,8 @@ class AccountController {
     }
 
     async login ({ request }){
-      const {username,password} = request.boody
-      const user = await auth.attemp(username,password)
+      const {references = undefined} =request.qs
+      const user = await LoginUtil(request,references,Account,Client)
 
       return {status : 200 , error : undefined , data : user}
 

@@ -29,7 +29,8 @@ Route.group(() => {
   // Route.post('/accounts' ,'AccountController.store')
   // Route.put('/accounts/:id','AccountController.update')
   // Route.patch('/accounts/:id','AccountController.update')
-  // Route.delete('/accounts/:id','AccountController.destroy')
+  // Route.delete('/accounts/:id','AccountController.destroy') login
+  Route.post('/account' ,'AccountController.login')
   
   //clients
   Route.resource('/clients', 'ClientController');
