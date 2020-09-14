@@ -30,6 +30,7 @@ module.exports =  async function NeedpostTableValidator(data) {
         need_faculty_mate : 'required|max:30',
         need_habit : 'required|max:250',
         need_habit_mate : 'required|max:250',
+        need_routine:'required|max:250',
         need_like_thing : 'required|max:150',
         need_dislike : 'required|max:150',
         need_other_information : 'required|max:250',
