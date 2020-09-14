@@ -10,8 +10,8 @@ module.exports =  async function RegisterValidator(data) {
         profile_picture,account_id} = data
     
     const rules = {
-        first_name :'required|max:50' ,
-        last_name : 'required|max:50',
+        first_name :'required|min:3|max:50' ,
+        last_name : 'required|min:3|max:50',
         email :'required|email|unique:clients,email|max:50' ,
         telephone_number : 'required|max:10',
         line_id :'required|max:50' ,
