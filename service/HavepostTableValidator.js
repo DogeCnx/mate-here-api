@@ -41,7 +41,6 @@ module.exports =  async function HavepostTableValidator(data) {
         pool : 'required|max:5',
         gym : 'required|max:5',
         luandry : 'required|max:5',
-        username :'required|min:6|max:15' ,
         air_conditioner : 'required|max:5',        
         number_of_toilet : 'required|max:5',        
         number_of_bedroom : 'required|max:5',        
