@@ -18,14 +18,14 @@ class AccountManage {
         const accounts = this._Account.query()
         
         
-        return this._withReferences(accounts,references).fetch().then(response => response.first())
+        return accounts.fetch()
     }
     getById(accountInstance,references){
         const { id } = accountInstance.params
         const accounts = this._Account.query().where({account_id : id})
         
         
-        return this._withReferences(accounts,references).fetch().then(response => response.first())
+        return accounts.fetch()
     }
 
     async create(accountInstance,references) {
