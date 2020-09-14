@@ -1,5 +1,4 @@
 'use strict'
-const Client = use('App/Models/Client')
 const Account = use('App/Models/Account')
 const RegisterUtil = require('../../../util/RegisterUtil')
 const numberTypeParamValidator = require('../../../service/numberTypeParamValidator')

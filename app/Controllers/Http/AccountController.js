@@ -80,6 +80,14 @@ class AccountController {
         return {status : 200 ,error : undefined , data : accounts};
 
     }
+
+    async login ({ request }){
+      const {username,password} = request.boody
+      const user = await auth.attemp(username,password)
+
+      return {status : 200 , error : undefined , data : user}
+
+    }
 }
 
 module.exports = AccountController
