@@ -21,7 +21,7 @@ class HavepostController {
     async show({ request }) {
         const {references = undefined} =request.qs
         
-        const validatedValue = numberTypeParamValidator(id)
+        const validatedValue = numberTypeParamValidator(references)
 
         if(validatedValue.error) 
         return { status: 500, 
