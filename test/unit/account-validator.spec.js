@@ -7,10 +7,10 @@ test('should receive object as first parameter',
 async ({ assert }) => {
   
   const validatedData = await loginValidator({
-    username: " ",
+    username: "12345678 ",
     password: "asdfrtfw"
   })
-  assert.isArray(validatedData.error)
+  assert.isNotOk(validatedData.error)
 })
 
 test('should return error when pass incorrect data', 
