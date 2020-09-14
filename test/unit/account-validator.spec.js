@@ -1,18 +1,21 @@
 'use strict'
 
-const { test } = use('Test/Suite')('Example')
+const { test } = use('Test/Suite')('Login Validator')
 const loginValidator = require('../../service/LoginValidator')
 
-test('should receive object as first parameter', async ({ assert }) => {
+test('should return error when pass incorrect data', 
+async ({ assert }) => {
+  
   const validatedData = await loginValidator({
-    username: "John",
-    password: "12345687"
+    username: "JohnDoe123",
+    password: "asdfrtfw"
   })
   assert.isOk(validatedData)
 
-  const validatedData2 = await loginValidator("John", "pass")
+  const validatedData2 = await loginValidator(
+    "JohnDoe123", 
+    "1234"
+    )
   assert.isNotOk(validatedData2)
-
 })
-
 
