@@ -22,7 +22,7 @@ Route.get('/', () => {
 
 Route.group(() => {
   
-  //teaacher table
+  //accounts
   Route.resource('/accounts','AccountController'); //auto generate
   // Route.get('/accounts','AccountController.index')
   // Route.get('/accounts/:id','AccountController.show')
@@ -31,22 +31,22 @@ Route.group(() => {
   // Route.patch('/accounts/:id','AccountController.update')
   // Route.delete('/accounts/:id','AccountController.destroy')
   
-  //students table
+  //clients
   Route.resource('/clients', 'ClientController');
 
-  //subjects 
+  //haveposts
   Route.resource('/haveposts', 'HavepostController');
 
-  //group
+  //needposts
   Route.resource('/needposts', 'NeedpostController');
 
-  //enrollments
+  //centrals
   Route.resource('/centrals', 'CentralController');
   
-  //enrollments
+  //rooms
   Route.resource('/rooms', 'RoomController');  
 
-  //students table
+  //registers
   Route.resource('/registers','RegisterController');
 
 

@@ -17,12 +17,6 @@ class Needpost extends Model {
     client(){
         return this.belongsTo('App/Models/Client')
     }
-    central(){
-        return this.hasMany('App/Models/Central')
-    }
-    room(){
-        return this.hasMany('App/Models/Room')
-    }
 }
 
 module.exports = Needpost
