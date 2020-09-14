@@ -5,7 +5,7 @@ module.exports =  async function HavepostTableValidator(data) {
 
     if (typeof data !== 'object') throw new Error()
     
-    const {username,eed_university_name,
+    const {need_university_name,
            type_room,full_cost,half_cost,
            amount_of_mate,location,faculty,
            faculty_mate,habit,habit_mate,
@@ -18,7 +18,7 @@ module.exports =  async function HavepostTableValidator(data) {
        } = data
     
     const rules = {
-        username :'required|min:6|max:15' ,
+       
         need_university_name :'required|max:100' ,
         type_room : 'required|max:50',
         full_cost :'required|max:7' ,
@@ -53,7 +53,7 @@ module.exports =  async function HavepostTableValidator(data) {
     }
     
     const validation = await Validator.validateAll({
-        username,need_university_name,
+        need_university_name,
         type_room,full_cost,half_cost,
         amount_of_mate,location,faculty,
         faculty_mate,habit,habit_mate,
