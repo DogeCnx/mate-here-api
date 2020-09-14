@@ -5,12 +5,13 @@ module.exports =  async function CentralValidator(data) {
 
     if (typeof data !== 'object') throw new Error()
     
-    const {parking,lift,
+    const {username,parking,lift,
            keycard,security,
            pool,gym,luandry} = data
     
     const rules = {
 
+        username :'required|min:6|max:15' ,
         parking : 'required|max:5',
         lift : 'required|max:5',
         keycard : 'required|max:5',
@@ -21,7 +22,7 @@ module.exports =  async function CentralValidator(data) {
     }
     
     const validation = await Validator.validateAll({
-        parking,lift,
+        username,parking,lift,
         keycard,security,
         pool,gym,luandry},rules)
 
