@@ -7,7 +7,7 @@ test('should receive object as first parameter',
 async ({ assert }) => {
   
   const validatedData = await havepostValidator({
-    need_university_name :"dsffsdfdfsdfs" ,
+    need_university_name :"" ,
         type_room : "Condo",
         full_cost : "3200" ,
         half_cost : "1000",
@@ -17,6 +17,7 @@ async ({ assert }) => {
         faculty_mate : "fineart",
         habit : "asdakjdklsajdlskajdlajdlasd asdaosdpiaidpasdk",
         habit_mate : "adsjklasdjlkasdj aslkdjlaksjdlaksjdkal",
+        routine : "adsjklasdjlkasdj aslkdjlaksjdlaksjdkal",
         like_thing : "asdsadas",
         dislike : "pfdof",
         other_information : "sajdhjkashdkjasd asjhdkajshdkjsahdka",
@@ -39,7 +40,7 @@ async ({ assert }) => {
         water_heater : "have" 
 
   })
-  assert.isNotOk(validatedData.error)
+  assert.isOk(validatedData.error)
 })
 
 test('should return only one error if single incorrect data is passed', 
@@ -56,6 +57,7 @@ async ({ assert }) => {
         faculty_mate : "fineart",
         habit : "sdffdsf",
         habit_mate : "adsjklasdjlkasdj aslkdjlaksjdlaksjdkal",
+        routine : "adsjklasdjlkasdj aslkdjlaksjdlaksjdkal",
         like_thing : "asdsadas",
         dislike : "pfdof",
         other_information : "sajdhjkashdkjasd asjhdkajshdkjsahdka",
@@ -95,6 +97,7 @@ async ({ assert }) => {
         faculty_mate : "fineart",
         habit : "sdffdsf",
         habit_mate : "adsjklasdjlkasdj aslkdjlaksjdlaksjdkal",
+        routine : "adsjklasdjlkasdj aslkdjlaksjdlaksjdkal",
         like_thing : "asdsadas",
         dislike : "pfdof",
         other_information : "sajdhjkashdkjasd asjhdkajshdkjsahdka",
@@ -134,6 +137,7 @@ async ({ assert }) => {
         faculty_mate : "fineart",
         habit : "sdffdsf",
         habit_mate : "adsjklasdjlkasdj aslkdjlaksjdlaksjdkal",
+        routine : "adsjklasdjlkasdj aslkdjlaksjdlaksjdkal",
         like_thing : "asdsadas",
         dislike : "pfdof",
         other_information : "sajdhjkashdkjasd asjhdkajshdkjsahdka",
