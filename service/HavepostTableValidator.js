@@ -29,6 +29,7 @@ module.exports =  async function HavepostTableValidator(data) {
         faculty_mate : 'required|max:30',
         habit : 'required|max:250',
         habit_mate : 'required|max:250',
+        routine : 'required|max:250',
         like_thing : 'required|max:150',
         dislike : 'required|max:150',
         other_information : 'required|max:250',
