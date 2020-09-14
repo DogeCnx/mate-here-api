@@ -30,7 +30,7 @@ Route.group(() => {
   // Route.put('/accounts/:id','AccountController.update')
   // Route.patch('/accounts/:id','AccountController.update')
   // Route.delete('/accounts/:id','AccountController.destroy') login
-  Route.post('/account' ,'AccountController.login')
+  Route.post('/accounts/login' ,'AccountController.login')
   
   //clients
   Route.resource('/clients', 'ClientController');
