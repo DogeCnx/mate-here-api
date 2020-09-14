@@ -21,23 +21,30 @@ class DatabaseSeeder {
 
     const clients =  await Factory
     .model('App/Models/Client')
-    .createMany(10)
+    .makeMany(10)
+
+    let counter = 0;
+    for (const account of accounts) {
+      await account.client().save(clients[counter]);
+
+      counter++;
+    }
 
     const haveposts =  await Factory
     .model('App/Models/Havepost')
-    .createMany(10)
+    .makeMany(10)
 
     const needposts =  await Factory
     .model('App/Models/Needpost')
-    .createMany(10)
+    .makeMany(10)
 
     const centrals =  await Factory
     .model('App/Models/Central')
-    .createMany(10)
+    .makeMany(10)
 
     const rooms =  await Factory
     .model('App/Models/Room')
-    .createMany(10)
+    .makeMany(10)
   }
 }
 
