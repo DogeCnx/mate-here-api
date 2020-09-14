@@ -6,13 +6,14 @@ module.exports =  async function RoomValidator(data) {
     if (typeof data !== 'object') throw new Error()
     
     const {
-           air_conditioner,number_of_toilet,
+        username,air_conditioner,number_of_toilet,
            number_of_bedroom,pets,smoking,
            internet_wifi,furniture,water_heater
         } = data
     
     const rules = {
 
+        username :'required|min:6|max:15' ,
         air_conditioner : 'required|max:5',        
         number_of_toilet : 'required|max:5',        
         number_of_bedroom : 'required|max:5',        
@@ -26,7 +27,7 @@ module.exports =  async function RoomValidator(data) {
     }
     
     const validation = await Validator.validateAll({
-               air_conditioner,number_of_toilet,
+        username, air_conditioner,number_of_toilet,
         number_of_bedroom,pets,smoking,
         internet_wifi,furniture,water_heater
     },rules)
