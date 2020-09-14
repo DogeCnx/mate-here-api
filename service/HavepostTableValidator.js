@@ -34,7 +34,6 @@ module.exports =  async function HavepostTableValidator(data) {
         other_information : 'required|max:250',
         status_post : 'required|max:10',
         client_id : 'required',
-        username :'required|min:6|max:15' ,
         parking : 'required|max:5',
         lift : 'required|max:5',
         keycard : 'required|max:5',
