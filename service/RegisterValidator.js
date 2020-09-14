@@ -16,7 +16,7 @@ module.exports =  async function RegisterValidator(data) {
         telephone_number : 'required|max:10',
         line_id :'required|max:50' ,
         facebook_name : 'required|max:100',
-        date_of_birth : 'required|date|max:10',
+        date_of_birth : 'required|date:YYYY-MM-DD|max:10',
         gender : 'required|max:10',
         profile_picture : 'required',
         account_id : 'required|max:7'
