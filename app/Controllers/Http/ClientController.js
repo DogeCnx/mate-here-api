@@ -56,7 +56,7 @@ class ClientController {
         
         return {status : 200 ,
             error : undefined , 
-            data : clients};
+            data : clients  || {}};
     }
 
 

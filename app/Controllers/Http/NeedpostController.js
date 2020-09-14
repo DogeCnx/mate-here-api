@@ -1,6 +1,6 @@
 'use strict'
 const Needpost = use('App/Models/Needpost')
-const NeedpostManage = require('../../../util/Needpost')
+const NeedpostManage = require('../../../util/NeedpostManage')
 const needpostValidator = require('../../../service/NeedpostTableValidator')
 const numberTypeParamValidator = require('../../../service/numberTypeParamValidator')
 
@@ -16,7 +16,7 @@ class NeedpostController {
         
         return {status : 200 ,
             error : undefined , 
-            data : needposts};
+            data : needposts  || {}};
     }
       
 

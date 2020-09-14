@@ -10,7 +10,7 @@ class RegisterController {
         const registers = await registerUtil.getAll(references)
         
         
-        return {status : 200 ,error : undefined , data : registers};
+        return {status : 200 ,error : undefined , data : registers  || {}};
     }
       
 

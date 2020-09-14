@@ -1,6 +1,6 @@
 'use strict'
 const Havepost = use('App/Models/Havepost')
-const HavepostManage = require('../../../util/Havepost')
+const HavepostManage = require('../../../util/HavepostManage')
 const havepostValidator = require('../../../service/HavepostTableValidator')
 const numberTypeParamValidator = require('../../../service/numberTypeParamValidator')
 
@@ -10,11 +10,10 @@ class HavepostController {
         const havepostManage = new HavepostManage(Havepost)
         const haveposts = await havepostManage
         .getAll(references)
-        
-        
+         
         return {status : 200 ,
             error : undefined , 
-            data : haveposts};
+            data : haveposts || {}};
     }
       
 
@@ -40,6 +39,7 @@ class HavepostController {
 
     async store({ request }) {
         const {references = undefined} =request.qs
+        const {client_id} = request.body
           
         const validation = await havepostValidator(request.body)
       
@@ -53,7 +53,7 @@ class HavepostController {
       
         const haveposts = await havepostManage
         .create(request,references)
-         const validatedValue = numberTypeParamValidator(id)
+         const validatedValue = numberTypeParamValidator(client_id)
 
        if(validatedValue.error) 
        return { status: 500, 
