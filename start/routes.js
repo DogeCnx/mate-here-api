@@ -41,11 +41,6 @@ Route.group(() => {
   //needposts
   Route.resource('/needposts', 'NeedpostController');
 
-  //centrals
-  Route.resource('/centrals', 'CentralController');
-  
-  //rooms
-  Route.resource('/rooms', 'RoomController');  
 
   //registers
   Route.resource('/registers','RegisterController');
