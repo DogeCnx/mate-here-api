@@ -4,11 +4,11 @@ const Validator = use('Validator')
 module.exports =  async function RegisterValidator(data) {
 
     if (typeof data !== 'object') throw new Error()
-    
+
     const {first_name,last_name,email,telephone_number,
           line_id,facebook_name,date_of_birth,gender,
         profile_picture,account_id} = data
-    
+
     const rules = {
         first_name :'required|min:3|max:50' ,
         last_name : 'required|min:3|max:50',
@@ -21,9 +21,9 @@ module.exports =  async function RegisterValidator(data) {
         profile_picture : 'required',
         account_id : 'required|max:7'
 
-        
+
     }
-    
+
     const validation = await Validator.validateAll({
         first_name,last_name,email,telephone_number,
         line_id,facebook_name,date_of_birth,gender,

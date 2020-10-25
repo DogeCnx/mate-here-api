@@ -5,7 +5,7 @@ const Model = use('Model')
 
 class Client extends Model {
     static get primaryKey(){
-        return 'idclient_id'
+        return 'client_id'
     }
     static get createdAtColumn() {
         return null;
@@ -14,8 +14,8 @@ class Client extends Model {
     static get updatedAtColumn(){
         return null;
     }
-    account(){
-        return this.belongsTo('App/Models/Account')
+    user(){
+        return this.belongsTo('App/Models/User')
     }
     havepost(){
         return this.hasMany('App/Models/Havepost')

@@ -4,7 +4,7 @@ const Validator = use('Validator')
 module.exports =  async function NeedpostTableValidator(data) {
 
     if (typeof data !== 'object') throw new Error()
-    
+
     const {need_university_name,
            need_type,need_full_cost,need_half_cost,
            need_amount_of_mate,need_location,need_faculty,
@@ -15,11 +15,11 @@ module.exports =  async function NeedpostTableValidator(data) {
            keycard,security,
            pool,gym,luandry,air_conditioner,number_of_toilet,
            number_of_bedroom,pets,smoking,
-           internet_wifi,furniture,water_heater} = data
-    
+           internet_wifi,furniture,water_heater,cover_img_url} = data
+
     const rules = {
 
-      
+
         need_university_name :'required|max:100' ,
         need_type : 'required|max:50',
         need_full_cost :'required|max:7' ,
@@ -43,17 +43,18 @@ module.exports =  async function NeedpostTableValidator(data) {
         pool : 'required|max:5',
         gym : 'required|max:5',
         luandry : 'required|max:5',
-        air_conditioner : 'required|max:5',        
-        number_of_toilet : 'required|max:5',        
-        number_of_bedroom : 'required|max:5',        
-        pets : 'required|max:5',        
-        smoking : 'required|max:5',        
-        internet_wifi : 'required|max:5',        
-        furniture : 'required|max:5',        
-        water_heater : 'required|max:5' 
+        air_conditioner : 'required|max:5',
+        number_of_toilet : 'required|max:5',
+        number_of_bedroom : 'required|max:5',
+        pets : 'required|max:5',
+        smoking : 'required|max:5',
+        internet_wifi : 'required|max:5',
+        furniture : 'required|max:5',
+        water_heater : 'required|max:5',
+        cover_img_url : 'required'
 
     }
-    
+
     const validation = await Validator.validateAll({
         need_university_name,
         need_type,need_full_cost,need_half_cost,
@@ -65,7 +66,7 @@ module.exports =  async function NeedpostTableValidator(data) {
         keycard,security,
         pool,gym,luandry,air_conditioner,number_of_toilet,
         number_of_bedroom,pets,smoking,
-        internet_wifi,furniture,water_heater},rules)
+        internet_wifi,furniture,water_heater,cover_img_url},rules)
 
     return {
         error : validation.messages()

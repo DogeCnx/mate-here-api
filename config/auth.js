@@ -65,11 +65,11 @@ module.exports = {
   | via HTTP `Authorization` header.
   |
   */
-  jwt: {
+ jwt: {
     serializer: 'lucid',
     model: 'App/Models/User',
     scheme: 'jwt',
-    uid: 'email',
+    uid: 'username',
     password: 'password',
     options: {
       secret: Env.get('APP_KEY')

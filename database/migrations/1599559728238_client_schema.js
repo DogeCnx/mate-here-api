@@ -21,9 +21,9 @@ class ClientSchema extends Schema {
 
       table
       .foreign('account_id')
-      .references('accounts.account_id')
-      .onDelete('CASCADE') 
-      .onUpdate('CASCADE') 
+      .references('users.id')
+      .onDelete('CASCADE')
+      .onUpdate('CASCADE')
     })
   }
 

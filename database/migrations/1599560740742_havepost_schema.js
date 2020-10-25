@@ -38,13 +38,14 @@ class HavepostSchema extends Schema {
       table.string('internet_wifi',5).notNullable()
       table.string('furniture',5).notNullable()
       table.string('water_heater',5).notNullable()
+      table.string('cover_img_url', 255).notNullable(),
       table.timestamps()
 
       table
       .foreign('client_id')
       .references('clients.client_id')
-      .onDelete('CASCADE') 
-      .onUpdate('CASCADE') 
+      .onDelete('CASCADE')
+      .onUpdate('CASCADE')
     })
   }
 
