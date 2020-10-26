@@ -6,7 +6,7 @@ module.exports =  async function RegisterValidator(data) {
     if (typeof data !== 'object') throw new Error()
 
     const {first_name,last_name,email,telephone_number,
-          line_id,facebook_name,date_of_birth,gender,
+          line_id,facebook_name,gender,
         profile_picture,account_id} = data
 
     const rules = {
@@ -16,7 +16,6 @@ module.exports =  async function RegisterValidator(data) {
         telephone_number : 'required|max:10',
         line_id :'required|max:50' ,
         facebook_name : 'required|max:100',
-        date_of_birth : 'required|date:YYYY-MM-DD|max:10',
         gender : 'required|max:10',
         profile_picture : 'required',
         account_id : 'required|max:7'
@@ -26,7 +25,7 @@ module.exports =  async function RegisterValidator(data) {
 
     const validation = await Validator.validateAll({
         first_name,last_name,email,telephone_number,
-        line_id,facebook_name,date_of_birth,gender,
+        line_id,facebook_name,gender,
         profile_picture,account_id
     },rules)
 

@@ -11,10 +11,11 @@ class AuthStupid {
    */
   async handle ({ request,auth,response }, next) {
     try{
-      console.log("Stupid")
+      console.log("Stupid Pass")
       await auth.check()
     }
     catch(e){
+      console.log("Stupid",e)
       return response.send({status : 400 ,error : "Login Stupid"})
     }
     await next()

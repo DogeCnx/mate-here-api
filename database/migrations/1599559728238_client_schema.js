@@ -13,7 +13,6 @@ class ClientSchema extends Schema {
       table.string('telephone_number',50).notNullable()
       table.string('line_id',50).notNullable()
       table.string('facebook_name',50).notNullable()
-      table.string('date_of_birth',50).notNullable()
       table.string('gender',10).notNullable()
       table.string('profile_picture',250).notNullable()
       table.integer('account_id').unsigned()

@@ -21,7 +21,9 @@ Route.get('/', () => {
 })
 
 Route.group(() => {
-
+  //picture
+  Route.get("/assets/:fileName","AsseetController.show")
+  Route.post("/assets","AsseetController.upload")
   //accounts
   Route.post('/auth/login', 'AuthController.login')
   Route.post('/auth/login', 'AuthController.logout')

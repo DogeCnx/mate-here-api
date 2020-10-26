@@ -27,12 +27,12 @@ class Register {
     }
     async create(registerInstance,references, auth) {
 
-        const {username,password,first_name ,last_name,email ,telephone_number,line_id,facebook_name,date_of_birth,gender,profile_picture,cover_img_url} = registerInstance.body
+        const {username,password,first_name ,last_name,email ,telephone_number,line_id,facebook_name,gender,profile_picture} = registerInstance.body
         const register = await this._Register.create( {username,password})
         await register.save();
         const account_id = register.id
 
-        const users = await Client.create({first_name ,last_name,email ,telephone_number,line_id,facebook_name,date_of_birth,gender,profile_picture,account_id})
+        const users = await Client.create({first_name ,last_name,email ,telephone_number,line_id,facebook_name,gender,profile_picture,account_id})
         await users.save()
 
         // return this._withReferences(this._Register.query(),references).where(id).with('client').fetch().then(response => response.first())
@@ -56,13 +56,13 @@ class Register {
 
     async updateById(registerInstance,references,auth){
         const { id } = registerInstance.params
-        const {username,password,first_name ,last_name,email ,telephone_number,line_id,facebook_name,date_of_birth,gender,profile_picture,cover_img_url} = registerInstance.body
+        const {username,password,first_name ,last_name,email ,telephone_number,line_id,facebook_name,gender,profile_picture} = registerInstance.body
 
         const register = await this._Register.find(id)
         if(!register){
             return {status : 500 ,error : `Not Found ${id}` , data : undefined};
         }
-        await register.client().where('account_id',id).update({first_name ,last_name,email ,telephone_number,line_id,facebook_name,date_of_birth,gender,profile_picture})
+        await register.client().where('account_id',id).update({first_name ,last_name,email ,telephone_number,line_id,facebook_name,gender,profile_picture})
         register.merge({username,password})
         await register.save()
 
