@@ -6,10 +6,10 @@ const numberTypeParamValidator = require('../../../service/numberTypeParamValida
 
 class HavepostController {
     async index( {request }) {
-        const {references = undefined,page,per_page} =request.qs
-        const havepostManage = new HavepostManage(Havepost,page,per_page)
+        const {references = undefined,page} =request.qs
+        const havepostManage = new HavepostManage(Havepost)
         const haveposts = await havepostManage
-        .getAll(references)
+        .getAll(references,page)
 
         return {status : 200 ,
             error : undefined ,

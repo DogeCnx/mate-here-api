@@ -8,10 +8,10 @@ const numberTypeParamValidator = require('../../../service/numberTypeParamValida
 class NeedpostController {
 
     async index( {request }) {
-        const {references = undefined} =request.qs
-        const needpostManage = new NeedpostManage(Needpost,page,per_page)
+        const {references = undefined,page} =request.qs
+        const needpostManage = new NeedpostManage(Needpost,page)
         const needposts = await needpostManage
-        .getAll(references)
+        .getAll(references,page)
 
 
         return {status : 200 ,

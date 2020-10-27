@@ -16,8 +16,8 @@ class HavepostManage {
       return instance;
     }
 
-    async getAll(references,page = 1, per_page = 10){
-        const haveposts= await this._Havepost.query().paginate(page,per_page)
+    async getAll(references,page){
+        const haveposts= await this._Havepost.query().paginate(page,7)
 
         return haveposts
 
