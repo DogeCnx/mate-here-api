@@ -16,7 +16,7 @@ class NeedpostManage {
       }
 
       async getAll(references, page){
-          const needposts= await this._Needpost.query().paginate(page,7)
+          const needposts= await this._Needpost.query().paginate(page,5)
 
           return needposts.toJSON()
 
